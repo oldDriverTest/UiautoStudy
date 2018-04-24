@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="test">
+
+<test name="test" preserver-order="true">
+<classes>
+//你也可以多个
+<class name="com.uiauto.testscripts.LoginTest"/>
+<class name="com.uiauto.testscripts.NewTest1" />
+</classes>
+</test>
+<listeners>
+//这是你需要加的东西
+<listener class-name="org.uncommons.reportng.HTMLReporter" />
+<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+<listener class-name="com.uiauto.util.TestListener" />
+    
+</listeners>
+
+</suite> <!-- Suite -->
