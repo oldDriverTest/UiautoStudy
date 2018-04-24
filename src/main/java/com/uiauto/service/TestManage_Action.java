@@ -20,7 +20,7 @@ public class TestManage_Action {
 		tmp.chooseLevel("3");
 		Helputil.switchFrame(webdriver, "ke-edit-iframe");
 		tmp.addRecur().clear();
-		tmp.addRecur().sendKeys("1重现步骤");
-		tmp.addStep().sendKeys("输入用户名面，点击登录按钮");
+		tmp.addRecur().sendKeys("");
+		
 	}
 }
