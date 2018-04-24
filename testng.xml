@@ -5,7 +5,7 @@
 <classes>
 //你也可以多个
 <class name="com.uiauto.testscripts.LoginTest"/>
-<class name="com.uiauto.testscripts.NewTest1" />
+<class name="com.uiauto.testscripts.TestManageTest" />
 </classes>
 </test>
 <listeners>
