@@ -71,7 +71,14 @@ GetLocator gl=new GetLocator();
 		return element;
 	}
 	
-	
+	//影响版本对象
+	public void chooseAffectversion(String value)throws Exception
+	{
+		element=webdriver.findElement(gl.getLocator("addbug.affectversion"));
+		element.click();
+		element.sendKeys(value);
+		
+	}
 	
 	
 	//重现步骤步骤

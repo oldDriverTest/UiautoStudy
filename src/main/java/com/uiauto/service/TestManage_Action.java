@@ -16,11 +16,12 @@ public class TestManage_Action {
 		Thread.sleep(3000);
 		//选择下拉框中的这个option
 		tmp.productChoose("isTester.com 全平台"); 
-		tmp.addBugtitle().sendKeys("测试标题");;
+		tmp.chooseAffectversion("trunk");
+		/*tmp.addBugtitle().sendKeys("测试标题");;
 		tmp.chooseLevel("3");
 		Helputil.switchFrame(webdriver, "ke-edit-iframe");
 		tmp.addRecur().clear();
 		tmp.addRecur().sendKeys("");
-		
+		*/
 	}
 }
