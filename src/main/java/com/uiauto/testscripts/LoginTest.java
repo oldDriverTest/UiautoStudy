@@ -18,7 +18,7 @@ public WebDriver webdriver;
   {
 	  //在执行用例前，删除本地的LOG文件
 	  Helputil.deleteLocalLog();
-//	  Helputil.deleteFailurePic();
+      //Helputil.deleteFailurePic();
 	  System.setProperty("webdriver.chrome.driver", "E:/chromenew/chromedriver.exe");
 	  webdriver=new ChromeDriver();
 	  TestListener.driver=webdriver;

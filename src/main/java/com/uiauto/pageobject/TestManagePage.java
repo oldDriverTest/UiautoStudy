@@ -74,10 +74,10 @@ GetLocator gl=new GetLocator();
 	//影响版本对象
 	public void chooseAffectversion(String value)throws Exception
 	{
-		element=webdriver.findElement(gl.getLocator("addbug.affectversion"));
-		element.click();
-		element.sendKeys(value);
-		
+	    element=webdriver.findElement(gl.getLocator("addbug.affectversion"));
+	    Helputil.mouseClick(webdriver, element);
+	    element.sendKeys(value);
+	    Helputil.pressEnter(webdriver);
 	}
 	
 	
@@ -85,6 +85,28 @@ GetLocator gl=new GetLocator();
 	public WebElement addStep()throws Exception
 	{
 		element=webdriver.findElement(gl.getLocator("addbug.article.step"));	
+		return element;
+	}
+	
+	//保存按钮
+	public WebElement doSubmit()throws Exception
+	{
+		element=webdriver.findElement(gl.getLocator("addbug.submit"));
+		return element;
+	}
+	
+	
+	//测试模块下的左上角产品选择
+	public void clickProduct()throws Exception
+	{
+		element=webdriver.findElement(gl.getLocator("addbug.chooseproduct"));
+		element.click();
+		
+	}
+	
+	public WebElement searchProduct()throws Exception
+	{
+		element=webdriver.findElement(gl.getLocator("addbug.searchproduct"));
 		return element;
 	}
 }

@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="6.000">
+           time="9.840">
   <properties />
   
   
-            <testcase name="f" time="6.000" classname="com.uiauto.testscripts.TestManageTest" />
+            <testcase name="addBUG" time="9.840" classname="com.uiauto.testscripts.TestManageTest" />
       
 </testsuite>

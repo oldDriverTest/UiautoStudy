@@ -48,7 +48,7 @@ public class Helputil {
 	public static void pressEnter(WebDriver webdriver)
 	{
 		Actions action=new Actions(webdriver);
-		action.sendKeys(Keys.ENTER).perform();;
+		action.sendKeys(Keys.ENTER).perform();
 	}
 	
 	//切换frame，根据classname切换
