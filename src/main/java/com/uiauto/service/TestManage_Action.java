@@ -7,7 +7,8 @@ import com.uiauto.util.Helputil;
 
 public class TestManage_Action {
 
-	public void addBug(WebDriver webdriver)throws Exception
+	public void addBug(WebDriver webdriver,String product,String title,
+			String level,String step)throws Exception
 	{
 		TestManagePage tmp=new TestManagePage(webdriver);
 		tmp.testMangementbtn().click();
@@ -16,22 +17,22 @@ public class TestManage_Action {
 		Thread.sleep(1000);
 		
 		//选择下拉框中的这个option
-		tmp.productChoose("isTester.com 全平台"); 
+		tmp.productChoose(product); 
 		
 		//这里要等待，不然会刷新导致填充不到，选择影响版本
 		Thread.sleep(1500);
 		tmp.chooseAffectversion("trunk");
 		
 		//测试标题
-		tmp.addBugtitle().sendKeys("测试标题输入");;
+		tmp.addBugtitle().sendKeys(title);;
 		
 		//级别
-		tmp.chooseLevel("3");
+		tmp.chooseLevel(level);
 		
 		//切换ifame框架，输入重现步骤的内容
 		Helputil.switchFrame(webdriver, "ke-edit-iframe");
 		tmp.addRecur().clear();
-		tmp.addRecur().sendKeys("test-auto0001	");	
+		tmp.addRecur().sendKeys(step);	
 		
 		//切出iframe、
 		webdriver.switchTo().defaultContent();
