@@ -33,7 +33,8 @@ public class TestManage_Action {
 		Helputil.switchFrame(webdriver, "ke-edit-iframe");
 		tmp.addRecur().clear();
 		tmp.addRecur().sendKeys(step);	
-		
+		//按下tab键    确保重现步骤可以保存
+		Helputil.pressTab(webdriver);  
 		//切出iframe、
 		webdriver.switchTo().defaultContent();
 		

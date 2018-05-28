@@ -5,21 +5,30 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
+
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.uiauto.dao.impl.BugDaoImpl;
+import com.uiauto.dao.impl.Factory;
 import com.uiauto.service.TestManage_Action;
 import com.uiauto.vo.Addbug;
 
 public class TestManageTest {
 public static WebDriver webdriver=null;
+BugDaoImpl bdi=Factory.getBugdaoimplObject();
+  
+  @BeforeTest
+  public void prepare()
+  {
+	  bdi.returnDefault();
+	  bdi.insertBugdata();
+  }
   @DataProvider(name="addbugdata")
   public Iterator<Object[]> addbugData()
   {
-		BugDaoImpl bdi=new BugDaoImpl();
+		
 		List<Addbug> list=new ArrayList<Addbug>();
 		list=bdi.getAddbugdata();
 		List<Object[]> bug=new ArrayList<Object[]>();

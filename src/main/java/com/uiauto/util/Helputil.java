@@ -51,6 +51,12 @@ public class Helputil {
 		action.sendKeys(Keys.ENTER).perform();
 	}
 	
+	public static void pressTab(WebDriver webdriver)
+	{
+		Actions action=new Actions(webdriver);
+		action.sendKeys(Keys.TAB).perform();
+	}
+	
 	//切换frame，根据classname切换
 	public static void switchFrame(WebDriver webdriver,String classname)
 	{
