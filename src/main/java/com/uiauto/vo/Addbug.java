@@ -6,6 +6,13 @@ private String product;
 private String bugtitle;
 private String errolevel;
 private String repetestep;
+private String expextresult;
+public String getExpextresult() {
+	return expextresult;
+}
+public void setExpextresult(String expextresult) {
+	this.expextresult = expextresult;
+}
 public String getProduct() {
 	return product;
 }

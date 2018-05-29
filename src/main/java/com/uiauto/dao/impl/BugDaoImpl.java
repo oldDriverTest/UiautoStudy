@@ -9,7 +9,7 @@ import java.util.List;
 
 import com.uiauto.dao.BugDao;
 import com.uiauto.util.DatabaseConnection;
-import com.uiauto.util.Datautil;
+import com.uiauto.util.DataUtil;
 import com.uiauto.util.Helputil;
 import com.uiauto.vo.Addbug;
 
@@ -41,6 +41,7 @@ public class BugDaoImpl implements BugDao {
 				addbug.setBugtitle(rs.getString(3));
 				addbug.setErrolevel(rs.getString(4));
 				addbug.setRepetestep(rs.getString(5));
+				addbug.setExpextresult(rs.getString(6));
 				list.add(addbug);
 			}
 		}
@@ -81,10 +82,13 @@ public class BugDaoImpl implements BugDao {
 			}
 			for(int i=0;i<count;i++)
 			{
-				String sql1="update addbuginformation set bugtitle=? where id=?";
+				String random;
+				String sql1="update addbuginformation set bugtitle=?,expextresult=? where id=?";
 				ps1=conn.prepareStatement(sql1);
-				ps1.setString(1,Helputil.getBaseinfo("bugtitle")+Datautil.randomNumber());
-				ps1.setInt(2, i+1);
+				random=DataUtil.randomNumber();
+				ps1.setString(1,Helputil.getBaseinfo("bugtitle")+random);
+				ps1.setString(2,Helputil.getBaseinfo("bugtitle")+random);
+				ps1.setInt(3, i+1);
 				ps1.executeUpdate();
 			}
 			flag=true;
@@ -115,7 +119,7 @@ public class BugDaoImpl implements BugDao {
 		PreparedStatement ps=null;
 		try
 		{
-				String sql1="update addbuginformation set bugtitle=null";
+				String sql1="update addbuginformation set bugtitle=null,expextresult=null";
 				ps=conn.prepareStatement(sql1);
 				ps.executeUpdate();
 			    flag=true;
@@ -134,7 +138,7 @@ public class BugDaoImpl implements BugDao {
 	public static void main(String[] args) {
 		BugDaoImpl bdi=new BugDaoImpl();
 		bdi.returnDefault();
-		bdi.insertBugdata();
+		
 	}
  
 }

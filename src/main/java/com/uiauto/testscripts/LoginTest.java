@@ -1,5 +1,7 @@
 package com.uiauto.testscripts;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -8,16 +10,17 @@ import org.testng.annotations.Test;
 
 import com.uiauto.service.Login_Action;
 import com.uiauto.util.Helputil;
-import com.uiauto.util.Log;
 import com.uiauto.util.TestListener;
 
 public class LoginTest {
 public WebDriver webdriver;
+private static Logger Log = LogManager.getLogger(LoginTest.class);
   @BeforeTest
   public void startChrome()
   {
 	  //在执行用例前，删除本地的LOG文件
 	  Helputil.deleteLocalLog();
+	  System.out.println("删除日志啊");
       //Helputil.deleteFailurePic();
 	  System.setProperty("webdriver.chrome.driver", "E:/chromenew/chromedriver.exe");
 	  webdriver=new ChromeDriver();
@@ -38,7 +41,7 @@ public WebDriver webdriver;
   
  
  
-  public WebDriver getWebdriver()
+  public  WebDriver getWebdriver()
   {
 	  return this.webdriver;
   }

@@ -23,7 +23,7 @@ public class Helputil {
 	
 	public static void deleteLocalLog()
 	{
-		File file=new File("F:/test.log");
+		File file=new File("test.log");
 		if(file.exists())
 		{
 			file.delete();

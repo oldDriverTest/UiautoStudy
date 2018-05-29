@@ -2,12 +2,15 @@ package com.uiauto.pageobject;
 
 
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.uiauto.util.GetLocator;
 import com.uiauto.util.Helputil;
+
 
 public class TestManagePage {
 private WebElement element=null;
@@ -107,6 +110,12 @@ GetLocator gl=new GetLocator();
 	public WebElement searchProduct()throws Exception
 	{
 		element=webdriver.findElement(gl.getLocator("addbug.searchproduct"));
+		return element;
+	}
+	
+	public WebElement keywords()throws Exception
+	{
+		element=webdriver.findElement(gl.getLocator("addbug.kewword"));
 		return element;
 	}
 }

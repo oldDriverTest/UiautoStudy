@@ -36,6 +36,8 @@ private Map<String, String> locatorinfo;
 	
 	else if(type.equals("xpath"))
 		return By.xpath(value);
+	else if(type.equals("tagname"))
+		return By.tagName(value);
 	else
 		throw new Exception(value+"定位方式为在程序中定义，请检查...");
 	}
