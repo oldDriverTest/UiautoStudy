@@ -11,24 +11,30 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class Helputil {
+public class HelpUtil {
 
 	public static String getBaseinfo(String key) throws Exception
 	{
 		 Properties properties=new Properties();
 		 BufferedReader bufferedReader = new BufferedReader(new FileReader("base.properties"));
 		 properties.load(bufferedReader);
+		 bufferedReader.close();
 		 return properties.getProperty(key);
+
 	}
 	
 	public static void deleteLocalLog()
 	{
-		File file=new File("test.log");
-		if(file.exists())
+		File logfile=new File("test.log");
+		if(logfile.exists())
 		{
-			file.delete();
+			logfile.delete();
+		}
+		else {
+			System.out.println("未检测到日志");
 		}
 	}
+	
 	public static void deleteFailurePic()
 	{
 		File file=new File("Failure");
@@ -63,4 +69,5 @@ public class Helputil {
 		webdriver.switchTo().frame(webdriver.findElement(By.className(classname)));
 	}
 
+	
 }

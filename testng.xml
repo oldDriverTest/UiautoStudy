@@ -4,8 +4,9 @@
 <test name="test" preserver-order="true">
 <classes>
 //你也可以多个
+
 <class name="com.uiauto.testscripts.LoginTest"/>
-<class name="com.uiauto.testscripts.TestManageTest" />
+<class name="com.uiauto.testscripts.TestManageTest" /> 
 </classes>
 </test>
 <listeners>

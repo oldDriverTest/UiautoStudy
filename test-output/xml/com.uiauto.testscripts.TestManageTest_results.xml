@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="test"
-           tests="3"
+           tests="2"
            failures="0"
            errors="0"
            skipped="0"
-           time="60.929">
+           time="22.609">
   <properties />
   
   
-            <testcase name="addBUG" time="10.007" classname="com.uiauto.testscripts.TestManageTest" />
-                <testcase name="addBUG" time="39.661" classname="com.uiauto.testscripts.TestManageTest" />
-                <testcase name="addBUG" time="11.261" classname="com.uiauto.testscripts.TestManageTest" />
+            <testcase name="addBug" time="11.981" classname="com.uiauto.testscripts.TestManageTest" />
+                <testcase name="searchBuginformation" time="10.628" classname="com.uiauto.testscripts.TestManageTest" />
       
 </testsuite>

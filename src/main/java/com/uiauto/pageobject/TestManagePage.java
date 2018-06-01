@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.uiauto.util.GetLocator;
-import com.uiauto.util.Helputil;
+import com.uiauto.util.HelpUtil;
 
 
 public class TestManagePage {
@@ -46,10 +46,10 @@ GetLocator gl=new GetLocator();
 	public void productChoose(String value) throws Exception
 	{
 		element=webdriver.findElement(gl.getLocator("addbug.product"));
-		Helputil.mouseClick(webdriver, element);
+		HelpUtil.mouseClick(webdriver, element);
 		WebElement element1=webdriver.findElement(gl.getLocator("addbug.productchoose"));
 		element1.sendKeys(value);
-		Helputil.pressEnter(webdriver);
+		HelpUtil.pressEnter(webdriver);
 	}
 	
 	//添加bug标题
@@ -63,7 +63,7 @@ GetLocator gl=new GetLocator();
 	public void chooseLevel(String value)throws Exception
 	{
 		element=webdriver.findElement(gl.getLocator("addbug.errolevel"));
-		Helputil.mouseClick(webdriver, element);
+		HelpUtil.mouseClick(webdriver, element);
 		WebElement element1=webdriver.findElement(By.linkText(value));
 		element1.click();
 	}
@@ -78,9 +78,9 @@ GetLocator gl=new GetLocator();
 	public void chooseAffectversion(String value)throws Exception
 	{
 	    element=webdriver.findElement(gl.getLocator("addbug.affectversion"));
-	    Helputil.mouseClick(webdriver, element);
+	    HelpUtil.mouseClick(webdriver, element);
 	    element.sendKeys(value);
-	    Helputil.pressEnter(webdriver);
+	    HelpUtil.pressEnter(webdriver);
 	}
 	
 	
@@ -116,6 +116,41 @@ GetLocator gl=new GetLocator();
 	public WebElement keywords()throws Exception
 	{
 		element=webdriver.findElement(gl.getLocator("addbug.kewword"));
+		return element;
+	}
+	
+	//bug标题
+	public WebElement bugtitle(String bugtitle)throws Exception
+	{
+		element=webdriver.findElement(By.linkText(bugtitle));
+		return element;
+	}
+	
+	//bug详细界面的重现步骤
+	public WebElement search_step()throws Exception
+	{
+		element=webdriver.findElement(gl.getLocator("searchbug.step"));
+		return element;
+	}
+	
+	//bug详细界面的严重级别
+	public WebElement search_level()throws Exception
+	{
+		element=webdriver.findElement(gl.getLocator("searchbug.level"));
+		return element;
+	}
+	
+	//测试模块的左上角选择对象
+	public WebElement search_choose()throws Exception
+	{
+		element=webdriver.findElement(gl.getLocator("searchbug.product"));
+		return element;
+	}
+	
+	//测试模块左上角点击后的搜索框
+	public WebElement search_input()throws Exception
+	{
+		element=webdriver.findElement(gl.getLocator("addbug.search"));
 		return element;
 	}
 }

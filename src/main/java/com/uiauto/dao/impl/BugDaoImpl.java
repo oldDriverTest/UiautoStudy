@@ -10,7 +10,7 @@ import java.util.List;
 import com.uiauto.dao.BugDao;
 import com.uiauto.util.DatabaseConnection;
 import com.uiauto.util.DataUtil;
-import com.uiauto.util.Helputil;
+import com.uiauto.util.HelpUtil;
 import com.uiauto.vo.Addbug;
 
 public class BugDaoImpl implements BugDao {
@@ -86,8 +86,8 @@ public class BugDaoImpl implements BugDao {
 				String sql1="update addbuginformation set bugtitle=?,expextresult=? where id=?";
 				ps1=conn.prepareStatement(sql1);
 				random=DataUtil.randomNumber();
-				ps1.setString(1,Helputil.getBaseinfo("bugtitle")+random);
-				ps1.setString(2,Helputil.getBaseinfo("bugtitle")+random);
+				ps1.setString(1,HelpUtil.getBaseinfo("bugtitle")+random);
+				ps1.setString(2,HelpUtil.getBaseinfo("bugtitle")+random);
 				ps1.setInt(3, i+1);
 				ps1.executeUpdate();
 			}

@@ -4,17 +4,17 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import com.uiauto.pageobject.TestManagePage;
-import com.uiauto.util.Helputil;
+import com.uiauto.util.HelpUtil;
 
 public class TestManage_Action {
-private static Logger Log = LogManager.getLogger(TestManage_Action.class);
-	public void addBug(WebDriver webdriver,String product,String title,
-			String level,String step)throws Exception
-	{
+	private  Logger Log = LogManager.getLogger(TestManage_Action.class);
+
+	public void addBug(WebDriver webdriver, String product, String title, String level, String step) throws Exception {
 		Log.info("-----------------新增Bug开始----------------");
-		TestManagePage tmp=new TestManagePage(webdriver);
+		TestManagePage tmp = new TestManagePage(webdriver);
 		Log.info("点击禅道的测试模块");
 		tmp.testMangementbtn().click();
 		Log.info("点击bug");
@@ -23,55 +23,87 @@ private static Logger Log = LogManager.getLogger(TestManage_Action.class);
 		tmp.addBug().click();
 		Log.info("睡觉1s");
 		Thread.sleep(1000);
-		
-		//选择下拉框中的这个option
-		Log.info("从所属产品中选择，选择的产品为:"+product);
-		tmp.productChoose(product); 
-		
-		//这里要等待，不然会刷新导致填充不到，选择影响版本
+
+		// 选择下拉框中的这个option
+		Log.info("从所属产品中选择，选择的产品为:" + product);
+		tmp.productChoose(product);
+
+		// 这里要等待，不然会刷新导致填充不到，选择影响版本
 		Log.info("等待1.5s，防止影响版本选不到");
 		Thread.sleep(1500);
 		Log.info("选择影响版本");
 		tmp.chooseAffectversion("trunk");
-		
-		//测试标题
-		Log.info("输入测试标题，输入的标题为:"+title);
-		tmp.addBugtitle().sendKeys(title);;
-		
-		//级别
-		Log.info("选择验证程度，选择的为:"+level);
+
+		// 测试标题
+		Log.info("输入测试标题，输入的标题为:" + title);
+		tmp.addBugtitle().sendKeys(title);
+		;
+
+		// 级别
+		Log.info("选择验证程度，选择的为:" + level);
 		tmp.chooseLevel(level);
-		//切换ifame框架，输入重现步骤的内容
-		
-		/*String js = "document.getElementByClassName('ke-edit-iframe').contentDocument.write('pds');";
-		((JavascriptExecutor)webdriver).executeScript(js);*/
-		Helputil.switchFrame(webdriver, "ke-edit-iframe");
+		// 切换ifame框架，输入重现步骤的内容
+
+		/*
+		 * String js =
+		 * "document.getElementByClassName('ke-edit-iframe').contentDocument.write('pds');";
+		 * ((JavascriptExecutor)webdriver).executeScript(js);
+		 */
+		HelpUtil.switchFrame(webdriver, "ke-edit-iframe");
 		Log.info("情空重现步骤");
 		tmp.addRecur().clear();
-		Log.info("输入重现步骤，输入的内容为:"+step);
+		Log.info("输入重现步骤，输入的内容为:" + step);
 		tmp.addRecur().sendKeys(step);
-		Log.info("   ");
-		
-		
-		//切出iframe、
+
+		// 切出iframe、
 		webdriver.switchTo().defaultContent();
 		Thread.sleep(1000);
-		
-		//点击关键词
-		tmp.keywords().sendKeys("test");;
-		
-		//点击保存按钮
+
+		// 点击关键词
+		tmp.keywords().sendKeys("test");
+		;
+
+		// 点击保存按钮
 		Log.info("点击保存按钮");
 		tmp.doSubmit().submit();
-		
+
 		Thread.sleep(1000);
-		Log.info("-----------------新增bug用例结束了-----------------");
-		//保存后页面左上角的产品选择,并且选择刚刚添加的产品类型
+		// 保存后页面左上角的产品选择,并且选择刚刚添加的产品类型
 		tmp.clickProduct();
 		Thread.sleep(1000);
-	    tmp.searchProduct().sendKeys(product);
-	    Thread.sleep(1000);
-	    Helputil.pressEnter(webdriver);
-
+		tmp.searchProduct().sendKeys(product);
+		Thread.sleep(1000);
+		HelpUtil.pressEnter(webdriver);
+		tmp.bugLink().click();
+		Thread.sleep(5);
 	}
+	
+
+	public void searchBuginformation(WebDriver webdriver,String product,String bugtitle,
+			String step,String level)throws Exception
+	{
+		
+		TestManagePage tmp=new TestManagePage(webdriver);
+		Log.info("点击禅道的测试模块");
+		tmp.testMangementbtn().click();
+		Thread.sleep(1000);
+		Log.info("点击左上角的选择框");
+		//点击产品搜索框
+		tmp.search_choose().click();
+		Thread.sleep(1000);
+		//输入搜索的产品
+		Log.info("搜索的产品为"+product);
+		tmp.search_input().sendKeys(product);
+		HelpUtil.pressEnter(webdriver);
+		Thread.sleep(3000);
+		Log.info("点击测试标题");
+		Log.info("点击的测试标题为:"+bugtitle);
+		tmp.bugtitle(bugtitle).click();
+		Thread.sleep(2000);
+		String str=tmp.search_step().getText();
+		Log.info("获取到的重现步骤的内容:"+str);
+		Assert.assertEquals(str,step);
+		Log.info("查看详细结束了，查看的测试标题为"+bugtitle);
+		Log.info("---------------------------");
+	}	
 }
