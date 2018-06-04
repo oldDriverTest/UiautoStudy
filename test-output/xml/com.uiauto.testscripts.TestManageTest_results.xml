@@ -4,15 +4,15 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="46.974">
+           time="44.220">
   <properties />
   
   
-            <testcase name="searchBuginformation" time="4.136" classname="com.uiauto.testscripts.TestManageTest" />
-                <testcase name="addBug" time="10.965" classname="com.uiauto.testscripts.TestManageTest" />
-                <testcase name="addBug" time="10.884" classname="com.uiauto.testscripts.TestManageTest" />
-                <testcase name="addBug" time="12.185" classname="com.uiauto.testscripts.TestManageTest" />
-                <testcase name="searchBuginformation" time="4.623" classname="com.uiauto.testscripts.TestManageTest" />
-                <testcase name="searchBuginformation" time="4.181" classname="com.uiauto.testscripts.TestManageTest" />
+            <testcase name="searchBuginformation" time="4.119" classname="com.uiauto.testscripts.TestManageTest" />
+                <testcase name="searchBuginformation" time="4.418" classname="com.uiauto.testscripts.TestManageTest" />
+                <testcase name="searchBuginformation" time="4.312" classname="com.uiauto.testscripts.TestManageTest" />
+                <testcase name="addBug" time="10.005" classname="com.uiauto.testscripts.TestManageTest" />
+                <testcase name="addBug" time="10.234" classname="com.uiauto.testscripts.TestManageTest" />
+                <testcase name="addBug" time="11.132" classname="com.uiauto.testscripts.TestManageTest" />
       
 </testsuite>
