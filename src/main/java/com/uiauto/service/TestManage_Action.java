@@ -43,12 +43,6 @@ public class TestManage_Action {
 		Log.info("选择验证程度，选择的为:" + level);
 		tmp.chooseLevel(level);
 		// 切换ifame框架，输入重现步骤的内容
-
-		/*
-		 * String js =
-		 * "document.getElementByClassName('ke-edit-iframe').contentDocument.write('pds');";
-		 * ((JavascriptExecutor)webdriver).executeScript(js);
-		 */
 		HelpUtil.switchFrame(webdriver, "ke-edit-iframe");
 		Log.info("情空重现步骤");
 		tmp.addRecur().clear();
@@ -79,31 +73,35 @@ public class TestManage_Action {
 	}
 	
 
+	/**@author huluxia
+	 * 查看功能的检查，这里的依据是从数据库查出来新增用例的title，然后点击title，获取到
+	 * 的重现步骤内容和新增时的重现步骤内容进行对比
+	 *
+	 * **/
 	public void searchBuginformation(WebDriver webdriver,String product,String bugtitle,
 			String step,String level)throws Exception
-	{
-		
+	{ 
+		Log.info("---------------------------");
+		Log.info("查看bug详情测试用例开始执行");
 		TestManagePage tmp=new TestManagePage(webdriver);
+		
 		Log.info("点击禅道的测试模块");
 		tmp.testMangementbtn().click();
 		Thread.sleep(1000);
-		Log.info("点击左上角的选择框");
-		//点击产品搜索框
-		tmp.search_choose().click();
-		Thread.sleep(1000);
-		//输入搜索的产品
-		Log.info("搜索的产品为"+product);
-		tmp.search_input().sendKeys(product);
-		HelpUtil.pressEnter(webdriver);
-		Thread.sleep(3000);
-		Log.info("点击测试标题");
+		
+		Log.info("点击更多链接");
+		tmp.search_more().click();
+		
 		Log.info("点击的测试标题为:"+bugtitle);
 		tmp.bugtitle(bugtitle).click();
 		Thread.sleep(2000);
+		
+		Log.info("获取界面中重现步骤的内容");
 		String str=tmp.search_step().getText();
 		Log.info("获取到的重现步骤的内容:"+str);
+		
 		Assert.assertEquals(str,step);
-		Log.info("查看详细结束了，查看的测试标题为"+bugtitle);
+		Log.info("查看bug详细结束了，查看的测试标题为"+bugtitle);
 		Log.info("---------------------------");
 	}	
 }

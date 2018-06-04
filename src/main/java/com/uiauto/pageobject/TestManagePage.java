@@ -153,4 +153,11 @@ GetLocator gl=new GetLocator();
 		element=webdriver.findElement(gl.getLocator("addbug.search"));
 		return element;
 	}
+	
+	//测试模块的更多链接
+	public WebElement search_more()throws Exception
+	{
+		element=webdriver.findElement(gl.getLocator("searchbug.more"));
+		return element;
+	}
 }
