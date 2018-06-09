@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="6.035">
+           time="7.350">
   <properties />
   
   
-            <testcase name="loginTest" time="6.035" classname="com.uiauto.testscripts.LoginTest" />
+            <testcase name="loginTest" time="7.350" classname="com.uiauto.testscripts.LoginTest" />
       
 </testsuite>

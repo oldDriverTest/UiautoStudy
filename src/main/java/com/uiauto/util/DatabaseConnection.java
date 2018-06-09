@@ -5,17 +5,15 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
-	private static final String dbdriver = "com.mysql.jdbc.Driver";
-	private static final String dburl = "jdbc:mysql://localhost:3306/uiauto";
-	private static final String dbuser = "root";
-	private static final String dbpassword = "070312";
+
 	private Connection conn = null;
 /*构造方法，根据配置进行数据库的链接
  * **/
 	public DatabaseConnection() {
 		try {
-			Class.forName(dbdriver);
-			this.conn=DriverManager.getConnection(dburl, dbuser, dbpassword);
+			Class.forName(HelpUtil.getBaseinfo("dbdriver"));
+			this.conn=DriverManager.getConnection(HelpUtil.getBaseinfo("dburl"), HelpUtil.getBaseinfo("dbuser"),
+												  HelpUtil.getBaseinfo("dbpassword"));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
