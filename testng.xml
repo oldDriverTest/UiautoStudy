@@ -7,6 +7,8 @@
 
 <class name="com.uiauto.testscripts.LoginTest"/>
 <class name="com.uiauto.testscripts.TestManageTest" /> 
+<methods>
+</methods>
 </classes>
 </test>
 <listeners>

@@ -160,4 +160,32 @@ GetLocator gl=new GetLocator();
 		element=webdriver.findElement(gl.getLocator("searchbug.more"));
 		return element;
 	}
+	
+	//bug的编辑按钮
+	public WebElement edit_editbtn()throws Exception
+	{
+		element=webdriver.findElement(gl.getLocator("editbug.editbtn"));
+		return element;
+	}
+	
+	//bug编辑界面的browser对象
+	public WebElement edit_selectBrowser()throws Exception
+	{
+		element=webdriver.findElement(gl.getLocator("editbug,browser"));
+		return element;
+	}
+	
+	//编辑界面的保存按钮
+	public WebElement edit_submit()throws Exception
+	{
+		element=webdriver.findElement(gl.getLocator("editbug.submit"));
+		return element;
+	}
+	
+	//bug详情界面的浏览器对象
+	public WebElement getBrowsertext()throws Exception
+	{
+		element=webdriver.findElement(gl.getLocator("editbug.browservalue"));
+		return element;
+	}
 }

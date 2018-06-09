@@ -137,8 +137,7 @@ public class BugDaoImpl implements BugDao {
 
 	public static void main(String[] args) {
 		BugDaoImpl bdi=new BugDaoImpl();
-		bdi.returnDefault();
-		
+		bdi.returnDefault();	
 	}
  
 }

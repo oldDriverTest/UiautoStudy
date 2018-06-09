@@ -8,10 +8,16 @@ import org.testng.Assert;
 
 import com.uiauto.pageobject.TestManagePage;
 import com.uiauto.util.HelpUtil;
+import com.uiauto.util.SelectUtil;
 
 public class TestManage_Action {
 	private  Logger Log = LogManager.getLogger(TestManage_Action.class);
 
+	/**@author huluxia
+	 * 新增bug  
+	 * @param
+	 * webdriver对象、产品名称、bug标题、严重级别、重现步骤
+	 * **/
 	public void addBug(WebDriver webdriver, String product, String title, String level, String step) throws Exception {
 		Log.info("-----------------新增Bug开始----------------");
 		TestManagePage tmp = new TestManagePage(webdriver);
@@ -104,4 +110,43 @@ public class TestManage_Action {
 		Log.info("查看bug详细结束了，查看的测试标题为"+bugtitle);
 		Log.info("---------------------------");
 	}	
+	
+	
+	/**@author huluxia
+	 * 编辑bug
+	 * 逻辑:从数据库获取添加的bug的标题，点击他，然后输入备注，
+	 * 
+	 * */
+	public void editBug(WebDriver webdriver,String bugtitle)throws Exception
+	{
+		TestManagePage tmp=new TestManagePage(webdriver);
+		Log.info("--------------------------------");
+		Log.info("-----------修改bug测试用例开始了-----------");
+		Log.info("点击禅道的测试模块");
+		tmp.testMangementbtn().click();
+		Thread.sleep(1000);
+		
+		Log.info("点击更多链接");
+		tmp.search_more().click();
+		
+		Log.info("点击从数据库查询到的bugtitle"+bugtitle);
+		tmp.bugtitle(bugtitle).click();
+		
+		Log.info("点击编辑按钮");
+		tmp.edit_editbtn().click();
+		
+		String option=SelectUtil.getRandomOption(tmp.edit_selectBrowser());
+		Log.info("下拉browser选择"+option);
+		SelectUtil.selectByVisible(tmp.edit_selectBrowser(),option);
+		
+		Log.info("点击保存按钮");
+		tmp.edit_submit().click();
+		Log.info("保存完毕");
+		
+		String browser1=tmp.getBrowsertext().getText();
+		Log.info("获取到的文本为"+browser1);
+		Assert.assertEquals(browser1,option);
+		Log.info("---------------修改bug用例结束----------------");
+		
+	}
 }

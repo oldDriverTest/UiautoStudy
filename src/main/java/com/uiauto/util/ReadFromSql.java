@@ -17,7 +17,7 @@ public class ReadFromSql {
 		ResultSet rs=null;
 		try
 		{
-			String sql="select type,locate from object where name=?";
+			String sql="select type,locate from bugobject where name=?";
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, name);
 			rs=ps.executeQuery();

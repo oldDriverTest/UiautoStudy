@@ -64,9 +64,15 @@ public class TestManageTest {
 	 * @param  Addbug对象，里面可以解析到数据库查询出来的新增bug的信息
 	 * bug查询，这里的逻辑就是从数据库读取到新增bug的信息，然后点击bug标题就行内容验证
 	 * */
-	@Test(dataProvider="addbugdata",dependsOnMethods={"addBug"},description="查看bug")
+	@Test(dataProvider="addbugdata",dependsOnMethods={"addBug"},description="查看bug",enabled=false)
 	public void searchBuginformation(Addbug addbug)throws Exception
 	{
 		tma.searchBuginformation(webdriver, addbug.getProduct(), addbug.getBugtitle(), addbug.getRepetestep(), addbug.getErrolevel());
+	}
+	
+	@Test(dataProvider="addbugdata")
+	public void editBug(Addbug addbug)throws Exception
+	{
+		tma.editBug(webdriver, addbug.getBugtitle());
 	}
 }
